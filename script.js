@@ -17,5 +17,7 @@ toggleButton.addEventListener('click', () => {
 // Sicherstellen, dass der gespeicherte Zustand beim Laden der Seite angewendet wird
 window.addEventListener('load', () => {
     const theme = localStorage.getItem('theme') || 'light';
-    body.classList.add(theme === 'dark' ? 'dark-mode' : 'light-mode');
+    // Überprüfen, ob der aktuelle Zustand bereits festgelegt ist
+    body.classList.toggle('dark-mode', theme === 'dark');
+    body.classList.toggle('light-mode', theme === 'light');
 });
