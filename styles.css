@@ -30,12 +30,13 @@ button {
     transition: background-color 0.3s, color 0.3s; /* Added transition for hover */
 }
 
-/* Button hover styles */
+/* Button hover styles for light mode */
 button:hover {
     background-color: #f0f0f0; /* Light hover effect for light mode */
     color: #000; /* Ensure text is readable */
 }
 
+/* Button hover styles for dark mode */
 body.dark-mode button:hover {
     background-color: #333333; /* Dark hover effect for dark mode */
     color: #ffffff; /* Ensure text is readable */
