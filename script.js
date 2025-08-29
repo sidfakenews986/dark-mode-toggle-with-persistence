@@ -1,12 +1,9 @@
 const toggleButton = document.getElementById('toggle-button');
 const body = document.body;
 
-// Überprüfen, ob der Benutzer eine Präferenz im lokalen Speicher hat
-if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-mode');
-} else {
-    body.classList.add('light-mode');
-}
+// Überprüfen, ob der Benutzer eine Präferenz im lokalen Speicher hat und anwenden
+const currentTheme = localStorage.getItem('theme') || 'light';
+body.classList.add(currentTheme === 'dark' ? 'dark-mode' : 'light-mode');
 
 toggleButton.addEventListener('click', () => {
     // Wechseln zwischen dunklem und hellem Modus
@@ -14,20 +11,11 @@ toggleButton.addEventListener('click', () => {
     body.classList.toggle('light-mode');
 
     // Speichern der Benutzerpräferenz im lokalen Speicher
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
-    }
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
 
 // Sicherstellen, dass der gespeicherte Zustand beim Laden der Seite angewendet wird
 window.addEventListener('load', () => {
-    if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark-mode');
-        body.classList.remove('light-mode');
-    } else {
-        body.classList.add('light-mode');
-        body.classList.remove('dark-mode');
-    }
+    const theme = localStorage.getItem('theme') || 'light';
+    body.classList.add(theme === 'dark' ? 'dark-mode' : 'light-mode');
 });
