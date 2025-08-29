@@ -27,4 +27,16 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Added transition for hover */
+}
+
+/* Button hover styles */
+button:hover {
+    background-color: #f0f0f0; /* Light hover effect for light mode */
+    color: #000; /* Ensure text is readable */
+}
+
+body.dark-mode button:hover {
+    background-color: #333333; /* Dark hover effect for dark mode */
+    color: #ffffff; /* Ensure text is readable */
 }
