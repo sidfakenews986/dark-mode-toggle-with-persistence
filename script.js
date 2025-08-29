@@ -7,11 +7,17 @@ body.classList.add(currentTheme === 'dark' ? 'dark-mode' : 'light-mode');
 
 toggleButton.addEventListener('click', () => {
     // Wechseln zwischen dunklem und hellem Modus
-    body.classList.toggle('dark-mode');
-    body.classList.toggle('light-mode');
-
-    // Speichern der Benutzerpräferenz im lokalen Speicher
-    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        // Speichern der Benutzerpräferenz im lokalen Speicher
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        // Speichern der Benutzerpräferenz im lokalen Speicher
+        localStorage.setItem('theme', 'dark');
+    }
 });
 
 // Sicherstellen, dass der gespeicherte Zustand beim Laden der Seite angewendet wird
