@@ -1,23 +1,28 @@
+/* Style for the body element */
 body {
     font-family: Arial, sans-serif;
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Light mode styles */
 body.light-mode {
     background-color: #ffffff;
     color: #000000;
 }
 
+/* Dark mode styles */
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
 }
 
+/* Container styles */
 .container {
     text-align: center;
     margin-top: 50px;
 }
 
+/* Button styles */
 button {
     padding: 10px 20px;
     font-size: 16px;
