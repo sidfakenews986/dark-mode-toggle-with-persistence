@@ -9,6 +9,7 @@ if (localStorage.getItem('theme') === 'dark') {
 }
 
 toggleButton.addEventListener('click', () => {
+    // Wechseln zwischen dunklem und hellem Modus
     body.classList.toggle('dark-mode');
     body.classList.toggle('light-mode');
 
@@ -17,5 +18,16 @@ toggleButton.addEventListener('click', () => {
         localStorage.setItem('theme', 'dark');
     } else {
         localStorage.setItem('theme', 'light');
+    }
+});
+
+// Sicherstellen, dass der gespeicherte Zustand beim Laden der Seite angewendet wird
+window.addEventListener('load', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+    } else {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
     }
 });
